@@ -1,0 +1,22 @@
+/* ===== Hero Section ===== */
+#home {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), transparent);
+}
+
+
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#home p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  #home h1 {
+    font-size: 2rem;
+  }
+}
