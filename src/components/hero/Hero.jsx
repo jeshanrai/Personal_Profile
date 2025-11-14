@@ -32,7 +32,7 @@ const Hero = ({ scrollToSection }) => {
         >
           A creative <strong>Full Stack Developer</strong> crafting immersive
           and modern web experiences using <span>React</span>, <span>Node.js</span>,
-          and <span>Tailwind CSS</span>.
+          and <span>Tailwind</span>.
         </motion.p>
 
         <motion.div
