@@ -1,0 +1,52 @@
+
+.edu-section {
+  width: 100%;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+.edu-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Wrapper grid */
+.edu-wrapper {
+  width: 90%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Card content */
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.edu-degree {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.edu-year {
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+.edu-school {
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+
+.edu-detail {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}

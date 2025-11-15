@@ -1,0 +1,86 @@
+/* Main Section */
+.skills-section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.skills-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #eaf7ff;
+}
+
+/* Category Style */
+.skill-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #9de0ff;
+  font-weight: 600;
+}
+
+/* Grid Layout */
+.category-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* Skill Card */
+.glass-skill {
+  width: 130px;
+  height: 130px;
+  border-radius: 1rem;
+  background: rgba(30, 41, 59, 0.35);
+  backdrop-filter: blur(6px) saturate(140%);
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.15);
+  padding: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover Animation */
+.glass-skill:hover {
+  transform: translateY(-6px);
+  background: rgba(30, 41, 59, 0.5);
+  box-shadow: 0 15px 40px rgba(6, 182, 212, 0.25);
+}
+
+/* Icon */
+.skill-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0.7rem;
+  object-fit: contain;
+}
+
+/* Skill Name */
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #eaf7ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-title {
+    font-size: 2rem;
+  }
+
+  .glass-skill {
+    width: 120px;
+    height: 120px;
+  }
+}
