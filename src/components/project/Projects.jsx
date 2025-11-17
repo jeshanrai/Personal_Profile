@@ -1,4 +1,4 @@
-import { projects } from "../data/projects";
+import { projects } from "../../data/projects";
 
 const ProjectCard = ({ title, description, tech }) => (
   <div className="project-card">
