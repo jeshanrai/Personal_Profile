@@ -1,22 +1,163 @@
-/* ===== Hero Section ===== */
-#home {
-  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1), transparent);
+.hero-left-content {
+  flex: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  padding: 2rem;
 }
 
-
-
-#home h1 {
-  font-size: 3rem;
+.hero-main-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-top: 9rem;
   margin-bottom: 1rem;
 }
 
-#home p {
-  font-size: 1.25rem;
+.hero-sub-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.highlighted-name {
+  color: #00f0ff;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
   margin-bottom: 2rem;
+  max-width: 700px; /* optional: limits line length for readability */
+}
+
+.tech-tag {
+  color: #00f0ff;
+  font-weight: 600;
+  margin: 0 0.2rem;
+}
+
+/* ==========================
+   Buttons
+========================== */
+.hero-button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center; /* center buttons */
+}
+
+.hero-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn {
+  background: rgba(30, 41, 59, 0.35);
+  width: fit-content;
+  color: #00f0ff;
+}
+
+.primary-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #00f0ff;
+  transform: translateY(-3px);
+}
+
+.resume-btn {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00f0ff;
+}
+
+.resume-btn:hover {
+  background: rgba(0, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 1024px) {
+  .hero-main-title {
+    font-size: 3.5rem;
+  }
+  .hero-sub-title {
+    font-size: 2.2rem;
+  }
+  .hero-description {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  #home h1 {
+  .hero-main-title {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-sub-title {
     font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-button-group {
+    justify-content: center;
+  }
+
+  .hero-blob-shape {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-ring-effect {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Mobile: force two rows on small screens */
+@media (max-width: 468px) {
+  .hero-button-group {
+    display: flex;
+    flex-wrap: wrap;       /* allow wrapping to next row */
+    justify-content: center;
+    gap: 0.8rem;           /* slightly smaller gap for narrow screens */
+    max-width: 300px;       /* ensures only two buttons per row */
+    margin: 0 auto;
+  }
+
+  .hero-btn {
+    flex: 1 1 45%;         /* each button ~half of container width */
+    min-width: 120px;      /* prevents buttons from getting too small */
+    max-width: 140px;      /* optional: keeps buttons reasonably sized */
+    text-align: center;    /* centers text inside button */
   }
 }

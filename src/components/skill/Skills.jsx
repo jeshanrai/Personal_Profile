@@ -1,65 +1,42 @@
-import './Skills.css';
+import React from "react";
+import "./Skills.css";
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      items: [
-        { name: "HTML", icon: "/icons/html.png" },
-        { name: "CSS", icon: "/icons/css.png" },
-        { name: "Tailwind CSS", icon: "/icons/tailwind.png" },
-        { name: "React.js", icon: "/icons/react.png" },
-        { name: "Next.js", icon: "/icons/next.png" }
-      ]
-    },
-    {
-      title: "Backend Development",
-      items: [
-        { name: "Node.js", icon: "/icons/node.png" },
-        { name: "Express.js", icon: "/icons/express.png" },
-        { name: "REST APIs", icon: "/icons/api.png" }
-      ]
-    },
-    {
-      title: "Database",
-      items: [
-        { name: "MySQL", icon: "/icons/mysql.png" },
-        { name: "MongoDB", icon: "/icons/mongo.png" }
-      ]
-    },
-    {
-      title: "Tools",
-      items: [
-        { name: "Git", icon: "/icons/git.png" },
-        { name: "GitHub", icon: "/icons/github.png" },
-        { name: "Postman", icon: "/icons/postman.png" },
-        { name: "Vercel", icon: "/icons/vercel.png" },
-        { name: "Trello", icon: "/icons/trello.png" },
-        { name: "Thunder Client", icon: "/icons/thunder.png" }
-      ]
-    }
+  const skills = [
+    { name: "React.js", img: "/images/skill/react.png" },
+    { name: "Next.js", img: "/images/skill/next.png" },
+    { name: "JavaScript", img: "/images/skill/js.png" },
+    { name: "Node.js", img: "/images/skill/node.png" },
+    { name: "Express.js", img: "/images/skill/express.png" },
+    { name: "MongoDB", img: "/images/skill/mongo.png" },
+    { name: "MySQL", img: "/images/skill/mysql.png" },
+    { name: "PHP", img: "/images/skill/php.png" },
+    { name: "Git & GitHub", img: "/images/skill/git.png" },
   ];
 
   return (
-    <section id="skills" className="skills-section">
-      <h2 className="skills-title">Skills & Expertise</h2>
+    <div className="glass-card">
+      <div className="skills-container">
+        <h1 className="skills-title">My Skills</h1>
 
-      <div className="skills-grid">
-        {skillCategories.map((category, index) => (
-          <div key={index} className="skill-category">
-            <h3 className="category-title">{category.title}</h3>
-
-            <div className="category-items">
-              {category.items.map((item, i) => (
-                <div key={i} className="skill-card glass-skill">
-                  <img src={item.icon} className="skill-icon" alt={item.name} />
-                  <p className="skill-name">{item.name}</p>
-                </div>
-              ))}
+        <div className="skills-grid">
+          {skills.map((skill, index) => (
+            <div
+              key={skill.name}
+              className={`skill-card ${skill.name === "JavaScript" ? "javascript" : ""}`}
+              style={{
+                "--skill-color": skill.color,
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              <img src={skill.img} alt={skill.name} className="skill-icon" />
+              <h3 className="skill-name">{skill.name}</h3>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
-    </section>
+    </div>
   );
 };
 
