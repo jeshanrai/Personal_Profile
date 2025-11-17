@@ -1,0 +1,105 @@
+#projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Main container */
+.projects-container {
+  max-width: 1500px;
+  margin: auto;
+  padding: 0 1rem;
+  overflow: hidden;  /* 🔥 IMPORTANT → hides all cards except 2 */
+}
+
+/* Slider wrapper */
+.projects-slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+/* Project Card */
+.project-card {
+  flex: 0 0 calc(50% - 1rem); /* EXACTLY 2 CARDS on desktop */
+  background: rgba(30, 41, 59, 0.35);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  margin: 0.5rem;
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.15);
+  transition: transform 0.3s;
+}
+
+
+/* Project Title */
+.project-card h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Description */
+.project-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* Tech Badges */
+.project-tech span {
+  display: inline-block;
+  background: rgba(103, 232, 249, 0.2);
+  padding: 0.3rem 0.7rem;
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* Project Image */
+.project-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Project Links */
+.project-links {
+  margin-top: 1rem;
+}
+
+.project-links a {
+  margin: 0 0.5rem;
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive (Tablet + Mobile) */
+@media (max-width: 1024px) {
+  .project-card {
+    flex: 0 0 100%; /* EXACTLY 1 CARD */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  .project-card h3 {
+    font-size: 1.4rem;
+  }
+}

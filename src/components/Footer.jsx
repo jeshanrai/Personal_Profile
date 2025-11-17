@@ -1,6 +1,6 @@
 const Footer = () => (
   <footer>
-    © 2024 John Doe. Crafted with ❤️ and React
+    © 2024 Jeshan Rai. Crafted with  React
   </footer>
 );
 
