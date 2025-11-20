@@ -1,18 +1,17 @@
-/* ================= Desktop / Default ================= */
 .hero_ui_wrapper {
   padding: 36px 24px;
   display: flex;
   justify-content: center;
   background: none;
+
   min-height: fit-content;
   box-sizing: border-box;
 }
-
 .hero_ui_card {
   width: 100%;
   max-width: 1180px;
 
-  /* Glass Theme */
+  /* NEW GLASS THEME */
   background: rgba(30, 41, 59, 0.35);
   backdrop-filter: blur(4px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(100%);
@@ -20,9 +19,10 @@
   box-shadow: 0 8px 30px rgba(6, 182, 212, 0.15);
   border-radius: 1.2rem;
   margin: 2%;
-  padding: 0 1.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 
-  /* Grid Structure */
+  /* STRUCTURE (unchanged) */
   display: grid;
   grid-template-columns: 1fr 420px 260px;
   gap: 28px;
@@ -33,7 +33,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* ---------------- Left Column ---------------- */
+/* Left column */
 .hero_ui_left .hero_ui_intro {
   color: #6b7280;
   font-size: 14px;
@@ -65,30 +65,29 @@
 .hero_ui_btn {
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
   color: #e2e8f0;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
-.hero_ui_btn:hover {
-  transform: translateY(-4px);
+.hero_ui_btn:hover { 
+  transform: translateY(-4px); 
   box-shadow: 0 8px 20px rgba(103, 232, 249, 0.2);
 }
 
-/* ---------------- Center Column ---------------- */
+/* Center profile */
 .hero_ui_center {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  max-width: 100%;
-  overflow: hidden; /* prevents image overflow */
 }
 
+/* Remove the circular frame completely */
 .hero_ui_profile_frame {
   width: max-content;
   height: max-content;
@@ -99,139 +98,227 @@
   border-radius: 0;
 }
 
+/* Full image — no circle, no border-radius */
 .hero_ui_profile_img {
   width: 100%;
-  height: auto; /* responsive */
-  max-width: 100%;
+  height: 70vh; /* Default desktop height */
   object-fit: contain !important;
   border-radius: 0 !important;
   display: block;
   box-shadow: none !important;
 }
 
-/* ---------------- Right Column / Skills ---------------- */
-.hero_ui_right {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
+/* Right column - skill cards */
+.hero_ui_right { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 18px; 
+  align-items: center; 
 }
 
 .hero_ui_skill_card {
   width: 220px;
   min-height: 110px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   border-radius: 14px;
   padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 22px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 8px 22px rgba(6,182,212,0.15);
   border: 1px solid rgba(103, 232, 249, 0.25);
   font-weight: 700;
   color: #e2e8f0;
 }
 
-/* ================= Tablet & Large Phones (max 1100px) ================= */
+/* Responsive - Tablet and larger phones (Max 1100px) */
+/* Modified to match the requested two-column layout */
 @media (max-width: 1100px) {
-  .hero_ui_card {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 26px;
+  .hero_ui_card { 
+    /* Two columns for Text (Left) and Image (Center) */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    padding: 26px; 
   }
-
-  .hero_ui_left { order: -1; }
-  .hero_ui_center { order: 0; }
+    
+  /* Text column moves to the first position/left */
+  .hero_ui_left {
+    order: -1; 
+  }
+    
+  /* Image column stays in the second position/right */
+  .hero_ui_center { 
+    order: 0; 
+  }
+    
   .hero_ui_profile_frame { margin: initial; }
 
+  /* Adjust image height for better fit in the side-by-side layout */
   .hero_ui_profile_img {
-    height: auto;
+    height: 50vh; 
     max-height: 500px;
   }
 
-  .hero_ui_right {
-    grid-column: 1 / -1;
-    order: 1;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+  .hero_ui_right { 
+    /* Skills take up the full width at the bottom */
+    grid-column: 1 / -1; /* Span across both columns */
+    order: 1; /* Push to the bottom row */
+    
+    flex-direction: row; 
+    justify-content: center; 
+    flex-wrap: wrap; 
   }
 
-  .hero_ui_skill_card { width: 160px; }
-  .hero_ui_left .hero_ui_name { font-size: 36px; }
+  .hero_ui_skill_card { 
+    width: 160px; 
+  }
+  .hero_ui_left .hero_ui_name { 
+    font-size: 36px; 
+  }
 }
 
-/* ================= Mobile (max 640px) ================= */
+/* 📱 MOBILE (Max 640px) — Image Left • Text Right • Skills Bottom */
 @media (max-width: 640px) {
-  .hero_ui_wrapper { padding: 18px 10px; }
+    .hero_ui_wrapper {
+        padding: 18px 10px;
+    }
 
-  .hero_ui_card {
-    display: grid;
-    grid-template-columns: 1fr; /* single column */
-    grid-template-rows: auto auto auto; /* image, text, skills */
-    gap: 12px;
-    padding: 12px;
-    margin: 0;
-    border-radius: 1rem;
-  }
+    .hero_ui_card {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        grid-template-rows: auto auto;   /* Skills bottom full row */
+        padding: 18px;
+        margin: 0;
+        border-radius: 1rem;
+        gap: 14px;
+    }
 
-  .hero_ui_center { order: 0; }
-  .hero_ui_left { order: 1; text-align: left; }
-  .hero_ui_right {
-    order: 2;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
+    /* Order */
+    .hero_ui_center { order: 0; } /* LEFT: Image */
+    .hero_ui_left  { order: 0; text-align: left; } /* RIGHT: Text */
+    .hero_ui_right {
+        order: 1;                 /* Bottom */
+        grid-column: 1 / -1;      /* Full width */
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
 
-  .hero_ui_profile_img { height: auto; max-height: 200px; }
-  .hero_ui_left .hero_ui_name { font-size: 26px; }
-  .hero_ui_left .hero_ui_tagline { font-size: 13px; line-height: 1.5; max-width: 100%; }
-  .hero_ui_btn { padding: 7px 10px; font-size: 12px; }
+    /* 🎯 Skills - Same Line (3 Equal Cards) */
+    .hero_ui_skill_card {
+        flex: 1 1 30%;
+        min-width: 0;
+        min-height: 68px;
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
 
-  .hero_ui_skill_card {
-    flex: 1 1 30%;
-    min-width: 0;
-    min-height: 68px;
-    font-size: 12px;
-    text-align: center;
-    padding: 10px;
-  }
+    /* 📸 Image */
+    .hero_ui_profile_img {
+        height: 25vh;
+        max-height: 200px;
+        object-fit: contain;
+    }
+
+    /* 🔤 Text */
+    .hero_ui_left .hero_ui_name { font-size: 26px; }
+    .hero_ui_left .hero_ui_tagline {
+        font-size: 13px;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .hero_ui_btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
 }
 
-/* ================= Smaller Mobiles (max 468px) ================= */
+
+/* 📱 SMALLER MOBILES (Max 468px) — SAME LAYOUT, JUST SMALLER SCALE */
 @media (max-width: 468px) {
-  .hero_ui_card { padding: 10px; gap: 10px; }
 
-  .hero_ui_profile_img { max-height: 150px; }
+    /* Keep same grid + layout */
+    .hero_ui_card {
+        grid-template-columns: 1fr 1fr;
+        padding: 14px;
+        gap: 10px;
+    }
 
-  .hero_ui_left .hero_ui_name { font-size: 22px; }
-  .hero_ui_left .hero_ui_tagline { font-size: 12px; line-height: 1.4; }
+    .hero_ui_left { text-align: left; }
 
-  .hero_ui_btn { padding: 6px 8px; font-size: 11px; }
+    /* Smaller image */
+    .hero_ui_profile_img {
+        height: 20vh;
+        max-height: 150px;
+    }
 
-  .hero_ui_skill_card { min-height: 55px; font-size: 11px; padding: 6px; }
+    /* Smaller text */
+    .hero_ui_left .hero_ui_name { font-size: 22px; }
+    .hero_ui_left .hero_ui_tagline { 
+        font-size: 12px; 
+        line-height: 1.4;
+    }
+
+    /* Smaller buttons */
+    .hero_ui_btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    /* Smaller skills */
+    .hero_ui_skill_card {
+        min-height: 55px;
+        font-size: 11px;
+        padding: 6px;
+    }
 }
 
-/* ================= Ultra Small Screens (max 438px) ================= */
+
+/* 📱 ULTRA SMALL SCREENS (Max 430px) — SAME LAYOUT, EVEN SMALLER SCALE */
 @media (max-width: 438px) {
-  .hero_ui_card { padding: 8px; gap: 8px; }
 
-  .hero_ui_profile_img { max-height: 135px; }
+    .hero_ui_card {
+        grid-template-columns: 1fr 1fr; /* SAME layout */
+        padding: 12px;
+        gap: 8px;
+    }
 
-  .hero_ui_left .hero_ui_intro { font-size: 11px; }
-  .hero_ui_left .hero_ui_name { font-size: 20px; }
-  .hero_ui_left .hero_ui_tagline { font-size: 11px; line-height: 1.35; }
+    /* Image Left */
+    .hero_ui_profile_img {
+        height: 18vh;
+        max-height: 135px;
+    }
 
-  .hero_ui_btn { padding: 5px 7px; font-size: 10px; border-radius: 10px; }
+    /* Text Right */
+    .hero_ui_left .hero_ui_intro {
+        font-size: 11px;
+    }
 
-  .hero_ui_skill_card {
-    min-height: 50px;
-    font-size: 10px;
-    padding: 5px;
-    flex: 1 1 30%;
-    word-break: break-word;
-    text-align: center;
-  }
+    .hero_ui_left .hero_ui_name { 
+        font-size: 20px; 
+    }
+
+    .hero_ui_left .hero_ui_tagline {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    /* Buttons smaller */
+    .hero_ui_btn {
+        padding: 5px 7px;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+
+    /* Skills on same line — smaller */
+    .hero_ui_skill_card {
+        min-height: 50px;
+        font-size: 10px;
+        padding: 5px;
+        flex: 1 1 30%; /* Still 3 equal cards */
+        word-break: break-word;
+        text-align: center;
+    }
 }
