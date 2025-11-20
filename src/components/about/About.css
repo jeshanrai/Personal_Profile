@@ -101,7 +101,7 @@
 /* Full image — no circle, no border-radius */
 .hero_ui_profile_img {
   width: 100%;
-  height: 70vh;
+  height: 70vh; /* Default desktop height */
   object-fit: contain !important;
   border-radius: 0 !important;
   display: block;
@@ -131,23 +131,194 @@
   color: #e2e8f0;
 }
 
-/* Responsive */
+/* Responsive - Tablet and larger phones (Max 1100px) */
+/* Modified to match the requested two-column layout */
 @media (max-width: 1100px) {
   .hero_ui_card { 
-    grid-template-columns: 1fr; 
+    /* Two columns for Text (Left) and Image (Center) */
+    grid-template-columns: 1fr 1fr; 
     gap: 20px; 
     padding: 26px; 
   }
+    
+  /* Text column moves to the first position/left */
+  .hero_ui_left {
+    order: -1; 
+  }
+    
+  /* Image column stays in the second position/right */
+  .hero_ui_center { 
+    order: 0; 
+  }
+    
+  .hero_ui_profile_frame { margin: initial; }
 
-  .hero_ui_center { order: -1; }
-  .hero_ui_profile_frame { margin: 0 auto; }
+  /* Adjust image height for better fit in the side-by-side layout */
+  .hero_ui_profile_img {
+    height: 50vh; 
+    max-height: 500px;
+  }
 
   .hero_ui_right { 
+    /* Skills take up the full width at the bottom */
+    grid-column: 1 / -1; /* Span across both columns */
+    order: 1; /* Push to the bottom row */
+    
     flex-direction: row; 
     justify-content: center; 
     flex-wrap: wrap; 
   }
 
-  .hero_ui_skill_card { width: 160px; }
-  .hero_ui_left .hero_ui_name { font-size: 36px; }
+  .hero_ui_skill_card { 
+    width: 160px; 
+  }
+  .hero_ui_left .hero_ui_name { 
+    font-size: 36px; 
+  }
+}
+
+/* 📱 MOBILE (Max 640px) — Image Left • Text Right • Skills Bottom */
+@media (max-width: 640px) {
+    .hero_ui_wrapper {
+        padding: 18px 10px;
+    }
+
+    .hero_ui_card {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        grid-template-rows: auto auto;   /* Skills bottom full row */
+        padding: 18px;
+        margin: 0;
+        border-radius: 1rem;
+        gap: 14px;
+    }
+
+    /* Order */
+    .hero_ui_center { order: 0; } /* LEFT: Image */
+    .hero_ui_left  { order: 0; text-align: left; } /* RIGHT: Text */
+    .hero_ui_right {
+        order: 1;                 /* Bottom */
+        grid-column: 1 / -1;      /* Full width */
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* 🎯 Skills - Same Line (3 Equal Cards) */
+    .hero_ui_skill_card {
+        flex: 1 1 30%;
+        min-width: 0;
+        min-height: 68px;
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* 📸 Image */
+    .hero_ui_profile_img {
+        height: 25vh;
+        max-height: 200px;
+        object-fit: contain;
+    }
+
+    /* 🔤 Text */
+    .hero_ui_left .hero_ui_name { font-size: 26px; }
+    .hero_ui_left .hero_ui_tagline {
+        font-size: 13px;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .hero_ui_btn {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+}
+
+
+/* 📱 SMALLER MOBILES (Max 468px) — SAME LAYOUT, JUST SMALLER SCALE */
+@media (max-width: 468px) {
+
+    /* Keep same grid + layout */
+    .hero_ui_card {
+        grid-template-columns: 1fr 1fr;
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .hero_ui_left { text-align: left; }
+
+    /* Smaller image */
+    .hero_ui_profile_img {
+        height: 20vh;
+        max-height: 150px;
+    }
+
+    /* Smaller text */
+    .hero_ui_left .hero_ui_name { font-size: 22px; }
+    .hero_ui_left .hero_ui_tagline { 
+        font-size: 12px; 
+        line-height: 1.4;
+    }
+
+    /* Smaller buttons */
+    .hero_ui_btn {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+
+    /* Smaller skills */
+    .hero_ui_skill_card {
+        min-height: 55px;
+        font-size: 11px;
+        padding: 6px;
+    }
+}
+
+
+/* 📱 ULTRA SMALL SCREENS (Max 430px) — SAME LAYOUT, EVEN SMALLER SCALE */
+@media (max-width: 438px) {
+
+    .hero_ui_card {
+        grid-template-columns: 1fr 1fr; /* SAME layout */
+        padding: 12px;
+        gap: 8px;
+    }
+
+    /* Image Left */
+    .hero_ui_profile_img {
+        height: 18vh;
+        max-height: 135px;
+    }
+
+    /* Text Right */
+    .hero_ui_left .hero_ui_intro {
+        font-size: 11px;
+    }
+
+    .hero_ui_left .hero_ui_name { 
+        font-size: 20px; 
+    }
+
+    .hero_ui_left .hero_ui_tagline {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    /* Buttons smaller */
+    .hero_ui_btn {
+        padding: 5px 7px;
+        font-size: 10px;
+        border-radius: 10px;
+    }
+
+    /* Skills on same line — smaller */
+    .hero_ui_skill_card {
+        min-height: 50px;
+        font-size: 10px;
+        padding: 5px;
+        flex: 1 1 30%; /* Still 3 equal cards */
+        word-break: break-word;
+        text-align: center;
+    }
 }

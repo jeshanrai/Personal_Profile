@@ -35,7 +35,7 @@ const GlassPortfolio = () => {
     <div className="glass-portfolio">
       <ThreeBackground mousePosition={mousePosition} />
       <CanvasDroplets />
-      <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+      <Navbar activeSection={activeSection}  scrolled={scrolled} scrollToSection={scrollToSection} />
       <Hero scrollToSection={scrollToSection} />
       <About />
       <Projects />

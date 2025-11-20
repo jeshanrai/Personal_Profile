@@ -3,15 +3,17 @@ import { Menu, X } from "lucide-react";
 import "./Navbar.css";
 
 
-const Navbar = ({ activeSection, scrollToSection }) => {
+const Navbar = ({ activeSection, scrollToSection, scrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
 
   return (
-    <nav className={`navbar ${activeSection !== "home" ? "scrolled" : ""}`}>
+   <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+
       <div className="navbar-container">
         <div className="logo">Portfolio</div>
         <div className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          {["home", "about", "projects", "skills","education", "contact"].map((item) => (
+          {["home", "about", "projects", "skills", "education", "contact"].map((item) => (
             <button
               key={item}
               className={`nav-link ${activeSection === item ? "active" : ""}`}

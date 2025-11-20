@@ -68,6 +68,13 @@
   display: none;
 }
 
+.navbar.scrolled {
+  backdrop-filter: blur(8px);
+  background: rgba(30, 41, 59, 0.7);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+
 @media (max-width: 768px) {
 
   .navbar {

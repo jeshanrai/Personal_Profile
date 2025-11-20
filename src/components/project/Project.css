@@ -1,3 +1,4 @@
+/* ---------- DESKTOP ---------- */
 #projects h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -9,7 +10,7 @@
   max-width: 1500px;
   margin: auto;
   padding: 0 1rem;
-  overflow: hidden;  /* 🔥 IMPORTANT → hides all cards except 2 */
+  overflow: hidden; /* hide the rest of slider cards */
 }
 
 /* Slider wrapper */
@@ -18,36 +19,24 @@
   transition: transform 0.7s ease-in-out;
 }
 
-/* Project Card */
+/* Project Card (2 cards on desktop) */
 .project-card {
-  flex: 0 0 calc(50% - 1rem); /* EXACTLY 2 CARDS on desktop */
+  flex: 0 0 calc(50% - 1rem);
   background: rgba(30, 41, 59, 0.35);
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   border: 1px solid rgba(103, 232, 249, 0.25);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1.2rem;
   text-align: center;
   margin: 0.5rem;
   box-shadow: 0 6px 20px rgba(6, 182, 212, 0.15);
   transition: transform 0.3s;
 }
 
-
-/* Project Title */
-.project-card h3 {
-  font-size: 1.7rem;
-  margin-bottom: 0.8rem;
-}
-
-/* Description */
-.project-card p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-/* Tech Badges */
+/* Title + Description + Badges */
+.project-card h3 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+.project-card p { font-size: 1rem; margin-bottom: 1rem; opacity: 0.9; }
 .project-tech span {
   display: inline-block;
   background: rgba(103, 232, 249, 0.2);
@@ -57,7 +46,7 @@
   font-size: 0.85rem;
 }
 
-/* Project Image */
+/* Image */
 .project-image {
   width: 100%;
   height: 350px;
@@ -66,40 +55,92 @@
   margin-bottom: 1rem;
 }
 
-/* Project Links */
-.project-links {
-  margin-top: 1rem;
-}
-
+/* Links */
+.project-links { margin-top: 1rem; }
 .project-links a {
   margin: 0 0.5rem;
   color: #06b6d4;
   text-decoration: none;
   font-weight: 500;
 }
+.project-links a:hover { text-decoration: underline; }
 
-.project-links a:hover {
-  text-decoration: underline;
-}
 
-/* Responsive (Tablet + Mobile) */
+/* ----- FORCE SLIDER TO SHOW 1 CARD BELOW 1024px ----- */
 @media (max-width: 1024px) {
-  .project-card {
-    flex: 0 0 100%; /* EXACTLY 1 CARD */
+  .projects-slider {
+    transform: translateX(calc(-100% * var(--index)));
   }
 }
 
-/* Extra small screens */
+
+
+/* ---------- MOBILE BELOW 480px ---------- */
 @media (max-width: 480px) {
   .project-card {
     padding: 1rem;
+    border-radius: 0.8rem;
   }
 
   .project-image {
-    height: 160px;
+    height: 200px;
   }
 
   .project-card h3 {
     font-size: 1.4rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+
+  .project-tech span {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+
+/* ---------- MINI MOBILE (<= 430px) ---------- */
+@media (max-width: 430px) {
+  .project-card {
+    padding: 0.9rem;
+  }
+
+  .project-image {
+    height: 170px;
+  }
+
+  .project-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-card p {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ---------- VERY SMALL (<= 360px) ---------- */
+@media (max-width: 360px) {
+  .project-card {
+    padding: 0.7rem;
+  }
+
+  .project-image {
+    height: 150px;
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-card p {
+    font-size: 0.8rem;
+  }
+
+  .project-tech span {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
   }
 }

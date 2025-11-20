@@ -61,14 +61,16 @@ const Projects = () => {
       <h2>Featured Projects</h2>
 
       <div className="projects-container">
-        <div
-          className="projects-slider"
-          ref={sliderRef}
-          style={{
-            transform: `translateX(-${index * 50}%)`, // 50% = 2 cards per view
-            transition: "transform 0.7s ease-in-out",
-          }}
-        >
+       <div
+  className="projects-slider"
+  ref={sliderRef}
+  style={{
+    "--index": index,
+    transform: `translateX(-${index * 50}%)`, // Desktop default
+    transition: "transform 0.7s ease-in-out",
+  }}
+>
+
           {infiniteProjects.map((project, i) => (
             <ProjectCard key={i} {...project} />
           ))}

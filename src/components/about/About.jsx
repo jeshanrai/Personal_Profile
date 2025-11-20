@@ -3,7 +3,7 @@ import "./About.css";
 
 export default function About({ profileSrc = "/images/profile/profile.png" }) {
   return (
-    <div className="hero_ui_wrapper">
+    <section className="hero_ui_wrapper" id="about">
       <div className="hero_ui_card" role="region" aria-label="hero">
         <div className="hero_ui_left">
           <p className="hero_ui_intro">Hello, I'm</p>
@@ -44,6 +44,6 @@ and creating products that are fast, reliable, and user‑centric.
 </aside>
 
       </div>
-    </div>
+    </section>
   );
 }

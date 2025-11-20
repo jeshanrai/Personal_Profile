@@ -50,6 +50,8 @@ const Contact = () => {
   };
 
   return (
+
+    < section id="contact" >
     <div className="contact-container glass-card-contact">
       <div className="contact-details">
         <h2 className="contact-title">Contact Me</h2>
@@ -99,6 +101,7 @@ const Contact = () => {
         </div>
       </form>
     </div>
+    </section >
   );
 };
 

@@ -15,7 +15,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="glass-card">
+    <section id="skills" className="glass-card">
       <div className="skills-container">
         <h1 className="skills-title">My Skills</h1>
 
@@ -36,7 +36,7 @@ const Skills = () => {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 };
 
