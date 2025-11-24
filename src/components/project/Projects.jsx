@@ -1,80 +1,40 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { projects } from "../../data/projects";
+import ProjectCard from "./ProjectCard";
 import "./Project.css";
 
-const ProjectCard = ({ title, description, tech, image, website, github }) => (
-  <div className="project-card">
-    <h3>{title}</h3>
-    <img src={image} alt={title} className="project-image" />
-    <p>{description}</p>
-    <div className="project-tech">
-      {tech.map((t, i) => (
-        <span key={i}>{t}</span>
-      ))}
-    </div>
-    <div className="project-links">
-      {website && (
-        <a href={website} target="_blank" rel="noopener noreferrer">
-          Website
-        </a>
-      )}
-      {github && (
-        <a href={github} target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-      )}
-    </div>
-  </div>
-);
-
 const Projects = () => {
-  const sliderRef = useRef(null);
-  const [index, setIndex] = useState(0);
+  const scrollRef = useRef(null);
 
-  // Create infinite array (duplicate list)
-  const infiniteProjects = [...projects, ...projects];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => prev + 1);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Reset index instantly when reaching halfway (loop illusion)
-  useEffect(() => {
-    if (index === projects.length) {
-      setTimeout(() => {
-        sliderRef.current.style.transition = "none";
-        setIndex(0);
-      }, 700);
-
-      setTimeout(() => {
-        sliderRef.current.style.transition = "transform 0.7s ease-in-out";
-      }, 750);
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+    if (current) {
+      const scrollAmount = direction === "left" ? -current.offsetWidth : current.offsetWidth;
+      current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
-  }, [index]);
+  };
 
   return (
-    <section id="projects">
-      <h2>Featured Projects</h2>
+    <section id="projects" className="projects-section">
+      <div className="projects-header">
+        <h2>Featured Projects</h2>
+        <p>A selection of my recent work</p>
+      </div>
 
       <div className="projects-container">
-       <div
-  className="projects-slider"
-  ref={sliderRef}
-  style={{
-    "--index": index,
-    transform: `translateX(-${index * 50}%)`, // Desktop default
-    transition: "transform 0.7s ease-in-out",
-  }}
->
+        <button className="scroll-btn left" onClick={() => scroll("left")}>
+          &lt;
+        </button>
 
-          {infiniteProjects.map((project, i) => (
-            <ProjectCard key={i} {...project} />
+        <div className="projects-scroll-wrapper" ref={scrollRef}>
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
+
+        <button className="scroll-btn right" onClick={() => scroll("right")}>
+          &gt;
+        </button>
       </div>
     </section>
   );
