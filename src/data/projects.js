@@ -44,7 +44,7 @@ export const projects = [
     description: "Modern animated React portfolio showcasing projects, skills, and experience.",
     tech: ["React", "Framer Motion"],
     image: "/images/project/profile.png",
-    website: "https://portfolio-website.vercel.app",
-    github: "https://www.jeshanrai.com.np"
+    website: "https://www.jeshanrai.com.np",
+    github: "https://github.com/jeshanrai/Personal-Profile"
   },
 ];
