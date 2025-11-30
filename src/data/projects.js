@@ -7,6 +7,15 @@ export const projects = [
     website: "https://rudraksha-store.vercel.app",
     github: "https://github.com/jeshanrai/Rudraksha_Store"
   },
+ {
+  "title": "SuRu",
+  "description": "Full-stack MERN platform connecting startup founders with potential partners and collaborators. Features real-time chat, advanced filtering, application management, and secure authentication.",
+  "tech": ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Vite"],
+  "image": "/images/project/suru.png",
+  "website": "https://suru-mu.vercel.app/",
+  "github": "https://github.com/jeshanrai/Suru"
+}
+,
   {
     title: "SecureChat",
     description: "Real-time MERN chat application with end-to-end encryption and user authentication.",
