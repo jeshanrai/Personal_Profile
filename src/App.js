@@ -4,6 +4,7 @@ import GlassPortfolio from './GlassPortfolio';
 
 function App() {
   return (
+    
    <GlassPortfolio />
   );
 }
